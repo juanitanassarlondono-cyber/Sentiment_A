@@ -30,7 +30,7 @@ st.markdown("""
     }
 
     section[data-testid="stSidebar"] {
-        background-color: #FFF8F0;
+        background-color: #B0E0E6;
     }
 
     div[data-testid="stExpander"] {
