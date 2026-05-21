@@ -2,7 +2,7 @@ from textblob import TextBlob
 import pandas as pd
 import streamlit as st
 from PIL import Image
-from googletrans import Translator
+from deep_translator import GoogleTranslator
 
 # Cambio visual: configuración general de página
 st.set_page_config(
@@ -50,7 +50,6 @@ st.image(image)
 # Cambio de palabras: descripción principal
 st.subheader("Ingresa en el campo de texto la frase que quieres evaluar")
 
-translator = Translator()
 
 with st.sidebar:
                # Cambio de palabras: título del panel lateral
@@ -71,8 +70,8 @@ with st.expander('Evaluar texto'):
     text = st.text_input('Escribe tu frase aquí: ')
     if text:
 
-        translation = translator.translate(text, src="es", dest="en")
-        trans_text = translation.text
+       
+        trans_text = GoogleTranslator(source="es", target="en").translate(text)
         blob = TextBlob(trans_text)
 
         # Cambio de palabras: etiquetas visibles de resultados
